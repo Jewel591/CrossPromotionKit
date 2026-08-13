@@ -1,0 +1,11 @@
+{
+  "catalogs": [
+    {
+      "path": "Sources/CrossPromotionKit/Resources/Localizable.xcstrings",
+      "target": "CrossPromotionKit",
+      "sourceRoot": "Sources/CrossPromotionKit",
+      "platforms": ["iOS", "macOS", "visionOS"]
+    }
+  ]
+}
+

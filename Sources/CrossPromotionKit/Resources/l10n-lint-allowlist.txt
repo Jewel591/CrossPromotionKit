@@ -1,0 +1,7 @@
+# reason: Pickup Cat 是该产品在拉丁语系、日语和韩语商店中的官方英文品牌名
+{"catalog":"Localizable.xcstrings","locale":"de","key":"Pickup Cat","leaf":"/stringUnit","value":"Pickup Cat"}
+{"catalog":"Localizable.xcstrings","locale":"es","key":"Pickup Cat","leaf":"/stringUnit","value":"Pickup Cat"}
+{"catalog":"Localizable.xcstrings","locale":"fr","key":"Pickup Cat","leaf":"/stringUnit","value":"Pickup Cat"}
+{"catalog":"Localizable.xcstrings","locale":"ja","key":"Pickup Cat","leaf":"/stringUnit","value":"Pickup Cat"}
+{"catalog":"Localizable.xcstrings","locale":"ko","key":"Pickup Cat","leaf":"/stringUnit","value":"Pickup Cat"}
+{"catalog":"Localizable.xcstrings","locale":"pt-BR","key":"Pickup Cat","leaf":"/stringUnit","value":"Pickup Cat"}

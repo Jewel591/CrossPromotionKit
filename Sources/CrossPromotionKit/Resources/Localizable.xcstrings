@@ -1,0 +1,126 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "AI package pickup code organizer" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "KI-Organizer für Abholcodes" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Organizador con IA de códigos de recogida" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Organisateur IA de codes de retrait" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "AIで荷物の受取コードを整理" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "AI 택배 수령 코드 정리" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Organizador de códigos de retirada com IA" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI 识别取件码管家" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "AI 辨識取件碼管家" } }
+      }
+    },
+    "App Store update tracker" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "App-Store-Updates verfolgen" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Seguimiento de actualizaciones de App Store" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Suivi des mises à jour de l’App Store" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "App Storeアップデート追跡" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "App Store 업데이트 추적" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Monitor de atualizações da App Store" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "App Store 更新追踪工具" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "App Store 更新追蹤工具" } }
+      }
+    },
+    "Books, films, and music collection" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Sammlung für Bücher, Filme und Musik" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Colección de libros, películas y música" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Collection de livres, films et musique" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "本・映画・音楽のコレクション" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "책, 영화, 음악 컬렉션" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Coleção de livros, filmes e músicas" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "精美的个人书影音收藏" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "精美的個人書影音收藏" } }
+      }
+    },
+    "Caffeine and hydration tracker" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Koffein und Flüssigkeit im Blick" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Seguimiento de cafeína e hidratación" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Suivi de la caféine et de l’hydratation" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カフェインと水分補給を記録" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카페인과 수분 섭취 기록" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Controle de cafeína e hidratação" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "咖啡因与饮水记录" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "咖啡因與飲水記錄" } }
+      }
+    },
+    "Get" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Laden" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Obtener" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Obtenir" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "入手" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "받기" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Obter" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "获取" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "取得" } }
+      }
+    },
+    "Native workspace for Supabase" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Nativer Arbeitsbereich für Supabase" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Espacio de trabajo nativo para Supabase" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Espace de travail natif pour Supabase" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Supabase用ネイティブワークスペース" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Supabase용 네이티브 작업 공간" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Espaço de trabalho nativo para Supabase" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "原生 Supabase 工作台" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "原生 Supabase 工作台" } }
+      }
+    },
+    "Opens in the App Store" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Wird im App Store geöffnet" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Se abre en App Store" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "S’ouvre dans l’App Store" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "App Storeで開きます" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "App Store에서 열립니다" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abre na App Store" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "将在 App Store 中打开" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "將在 App Store 中開啟" } }
+      }
+    },
+    "Our Other Apps" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Unsere anderen Apps" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nuestras otras apps" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Nos autres apps" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "その他のアプリ" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "다른 앱" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Nossos outros apps" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "我们的其他作品" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "我們的其他作品" } }
+      }
+    },
+    "Personal finance, beautifully simple" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Persönliche Finanzen, schön einfach" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Finanzas personales, simples y elegantes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Les finances personnelles en toute simplicité" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "美しくシンプルな家計管理" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "아름답고 간편한 개인 재정 관리" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Finanças pessoais de forma simples e elegante" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "简洁优雅的个人记账" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "簡潔優雅的個人記帳" } }
+      }
+    },
+    "Pickup Cat" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "取件喵" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "取件喵" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}
