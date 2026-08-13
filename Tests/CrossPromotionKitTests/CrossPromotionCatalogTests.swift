@@ -14,7 +14,6 @@ struct CrossPromotionCatalogTests {
         #expect(apps.map(\.appStoreID) == [
             "6749771947",
             "6741805793",
-            "6754563987",
         ])
         #expect(apps.allSatisfy { $0.audience == .consumer })
         #expect(!apps.contains { $0.bundleIdentifier == "weisenjoytech.mono-finance" })

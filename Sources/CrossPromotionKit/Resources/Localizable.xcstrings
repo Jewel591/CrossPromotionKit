@@ -37,18 +37,6 @@
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "精美的個人書影音收藏" } }
       }
     },
-    "Caffeine and hydration tracker" : {
-      "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Koffein und Flüssigkeit im Blick" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Seguimiento de cafeína e hidratación" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Suivi de la caféine et de l’hydratation" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "カフェインと水分補給を記録" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "카페인과 수분 섭취 기록" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Controle de cafeína e hidratação" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "咖啡因与饮水记录" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "咖啡因與飲水記錄" } }
-      }
-    },
     "Get" : {
       "localizations" : {
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Laden" } },
