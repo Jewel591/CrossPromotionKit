@@ -38,6 +38,13 @@ public enum CrossPromotionCatalog {
                 name: "Filmo",
                 subtitle: localized("Books, films, and music collection")
             ),
+            Entry(
+                bundleIdentifier: "com.linliao.LastTime",
+                appStoreID: "6762844702",
+                audience: .consumer,
+                name: "LastTime",
+                subtitle: localized("Track the last time with smart reminders")
+            ),
             // HeyCoffee is paused and intentionally excluded from cross-promotion.
             Entry(
                 bundleIdentifier: "com.linliao.SupaMate",
