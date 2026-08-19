@@ -14,9 +14,25 @@ struct CrossPromotionCatalogTests {
         #expect(apps.map(\.appStoreID) == [
             "6749771947",
             "6741805793",
+            "6762844702",
         ])
         #expect(apps.allSatisfy { $0.audience == .consumer })
         #expect(!apps.contains { $0.bundleIdentifier == "weisenjoytech.mono-finance" })
+    }
+
+    @Test("LastTime is a registered consumer host and excludes itself")
+    func lastTimeRegistrationAndHostExclusion() {
+        let apps = CrossPromotionCatalog.apps(
+            forHostBundleIdentifier: "com.linliao.LastTime"
+        )
+
+        #expect(apps.map(\.appStoreID) == [
+            "6670716062",
+            "6749771947",
+            "6741805793",
+        ])
+        #expect(apps.allSatisfy { $0.audience == .consumer })
+        #expect(!apps.contains { $0.bundleIdentifier == "com.linliao.LastTime" })
     }
 
     @Test("Developer hosts never receive consumer apps")
@@ -79,6 +95,13 @@ struct CrossPromotionLocalizationTests {
                 value: nil,
                 table: nil
             ) == "我们的其他作品"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "Track the last time with smart reminders",
+                value: nil,
+                table: nil
+            ) == "记录上一次，到期智能提醒"
         )
     }
 

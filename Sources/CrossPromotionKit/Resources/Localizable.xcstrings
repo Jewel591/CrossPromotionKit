@@ -108,6 +108,18 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "取件喵" } },
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "取件喵" } }
       }
+    },
+    "Track the last time with smart reminders" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Letzte Ereignisse mit intelligenten Erinnerungen verfolgen" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Registra la última vez con recordatorios inteligentes" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Suivez la dernière fois avec des rappels intelligents" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "前回からの日数を記録してスマートに通知" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "마지막 이후 날짜를 기록하고 스마트하게 알림" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Registre a última vez com lembretes inteligentes" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "记录上一次，到期智能提醒" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "記錄上一次，到期智慧提醒" } }
+      }
     }
   },
   "version" : "1.0"
