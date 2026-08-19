@@ -96,6 +96,13 @@ struct CrossPromotionLocalizationTests {
                 table: nil
             ) == "我们的其他作品"
         )
+        #expect(
+            bundle.localizedString(
+                forKey: "Track the last time with smart reminders",
+                value: nil,
+                table: nil
+            ) == "记录上一次，到期智能提醒"
+        )
     }
 
     @Test("Japanese resources render package copy")
