@@ -36,3 +36,10 @@ description: 在任何 Apple App 里实现、迁移或排查「我们的其他�
    产品只有在 App Store ID 已上线后才加入目录；未上架宿主可以只登记分组、
    自己的条目保持不出现。
 5. ⛔ 不混分组：consumer 宿主只见 consumer 目录，developer 同理，没有降级混排。
+
+## 宿主测试边界
+
+- 宿主只测试自己的 bundle identity、入口放置和自定义 Style 是否使用 Kit 提供的 configuration 动作。
+- 分组选择、排除当前 App、排序、未知宿主 fail closed、元数据查询与缓存属于 CrossPromotionKit；这些固定契约只在 Kit 包测试一次。
+- 不在 XCTest 中扫描 `project.pbxproj`、import、源码字符串或旧目录声明；装配与生产入口由 `cross-promotion-kit-lint` 负责。
+- 不复制 Kit 的目录 fixture 到 App。两个宿主若需要相同测试 helper，说明能力或测试接缝应回到 Kit。
