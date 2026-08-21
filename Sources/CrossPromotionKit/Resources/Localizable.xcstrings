@@ -81,8 +81,8 @@
         "ja" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 経過日数" } },
         "ko" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 경과일" } },
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "LastTime Contador de dias" } },
-        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 倒数" } },
-        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 倒數" } }
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 距今天数" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 距今天數" } }
       }
     },
     "MONO Expense Tracker" : {
@@ -145,7 +145,7 @@
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "簡潔優雅的個人記帳" } }
       }
     },
-    "Pickup Cat" : {
+    "Pickup Cat Pickup Codes" : {
       "localizations" : {
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat Abholcodes" } },
         "es" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat Códigos de recogida" } },

@@ -94,6 +94,27 @@ struct CrossPromotionCatalogTests {
         #expect(ids.allSatisfy { !$0.isEmpty && $0.allSatisfy(\.isNumber) })
         #expect(apps.allSatisfy { !$0.name.isEmpty && !$0.subtitle.isEmpty })
     }
+
+    @Test("Published catalog names resolve through the package catalog")
+    func publishedCatalogNamesUseLocalizedKeys() {
+        let consumerApps = CrossPromotionCatalog.apps(
+            forHostBundleIdentifier: "com.linliao.ScreenStudies"
+        )
+        let developerApps = CrossPromotionCatalog.apps(
+            forHostBundleIdentifier: "com.liaolin.apper"
+        )
+        let names = Dictionary(
+            uniqueKeysWithValues: (consumerApps + developerApps).map {
+                ($0.appStoreID, $0.name)
+            }
+        )
+
+        #expect(names["6670716062"] == String(localized: "MONO Expense Tracker", bundle: .module))
+        #expect(names["6749771947"] == String(localized: "Pickup Cat Pickup Codes", bundle: .module))
+        #expect(names["6741805793"] == String(localized: "Filmo Media Library", bundle: .module))
+        #expect(names["6762844702"] == String(localized: "LastTime Days Since", bundle: .module))
+        #expect(names["6791957298"] == String(localized: "Supamate for Supabase", bundle: .module))
+    }
 }
 
 @Suite("Package localization")
@@ -131,11 +152,11 @@ struct CrossPromotionLocalizationTests {
                 forKey: "LastTime Days Since",
                 value: nil,
                 table: nil
-            ) == "LastTime 倒数"
+            ) == "LastTime 距今天数"
         )
         #expect(
             bundle.localizedString(
-                forKey: "Pickup Cat",
+                forKey: "Pickup Cat Pickup Codes",
                 value: nil,
                 table: nil
             ) == "取件喵"
@@ -169,6 +190,20 @@ struct CrossPromotionLocalizationTests {
                 value: nil,
                 table: nil
             ) == "Filmo 映画・本・音楽"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "LastTime Days Since",
+                value: nil,
+                table: nil
+            ) == "LastTime 経過日数"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "Pickup Cat Pickup Codes",
+                value: nil,
+                table: nil
+            ) == "Pickup Cat 受取コード"
         )
     }
 }

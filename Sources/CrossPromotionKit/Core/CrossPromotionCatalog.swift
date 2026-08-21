@@ -28,7 +28,7 @@ public enum CrossPromotionCatalog {
                 bundleIdentifier: "com.weisenjoytech.CodeCat",
                 appStoreID: "6749771947",
                 audience: .consumer,
-                name: localized("Pickup Cat"),
+                name: localized("Pickup Cat Pickup Codes"),
                 subtitle: localized("AI package pickup code organizer")
             ),
             Entry(
