@@ -21,45 +21,45 @@ public enum CrossPromotionCatalog {
                 bundleIdentifier: "weisenjoytech.mono-finance",
                 appStoreID: "6670716062",
                 audience: .consumer,
-                name: localized("MONO Expense Tracker", from: bundle),
-                subtitle: localized("Personal finance, beautifully simple", from: bundle)
+                name: String(localized: "MONO Expense Tracker", bundle: bundle),
+                subtitle: String(localized: "Personal finance, beautifully simple", bundle: bundle)
             ),
             Entry(
                 bundleIdentifier: "com.weisenjoytech.CodeCat",
                 appStoreID: "6749771947",
                 audience: .consumer,
-                name: localized("Pickup Cat Pickup Codes", from: bundle),
-                subtitle: localized("AI package pickup code organizer", from: bundle)
+                name: String(localized: "Pickup Cat Pickup Codes", bundle: bundle),
+                subtitle: String(localized: "AI package pickup code organizer", bundle: bundle)
             ),
             Entry(
                 bundleIdentifier: "weisenjoytech.Filmo",
                 appStoreID: "6741805793",
                 audience: .consumer,
-                name: localized("Filmo Media Library", from: bundle),
-                subtitle: localized("Books, films, and music collection", from: bundle)
+                name: String(localized: "Filmo Media Library", bundle: bundle),
+                subtitle: String(localized: "Books, films, and music collection", bundle: bundle)
             ),
             Entry(
                 bundleIdentifier: "com.linliao.LastTime",
                 appStoreID: "6762844702",
                 audience: .consumer,
-                name: localized("LastTime Days Since", from: bundle),
-                subtitle: localized("Track the last time with smart reminders", from: bundle)
+                name: String(localized: "LastTime Days Since", bundle: bundle),
+                subtitle: String(localized: "Track the last time with smart reminders", bundle: bundle)
             ),
             // HeyCoffee is paused and intentionally excluded from cross-promotion.
             Entry(
                 bundleIdentifier: "com.linliao.SupaMate",
                 appStoreID: "6791957298",
                 audience: .developer,
-                name: localized("Supamate for Supabase", from: bundle),
-                subtitle: localized("Native workspace for Supabase", from: bundle)
+                name: String(localized: "Supamate for Supabase", bundle: bundle),
+                subtitle: String(localized: "Native workspace for Supabase", bundle: bundle)
             ),
             // Apper is registered as a developer-tool host but intentionally remains unpublished.
             Entry(
                 bundleIdentifier: "com.liaolin.apper",
                 appStoreID: nil,
                 audience: .developer,
-                name: localized("Apper Ideas", from: bundle),
-                subtitle: localized("App Store update tracker", from: bundle)
+                name: String(localized: "Apper Ideas", bundle: bundle),
+                subtitle: String(localized: "App Store update tracker", bundle: bundle)
             ),
             // ScreenStudies is a consumer-audience host so the study app can
             // load the studio catalog; it stays unpublished and is never recommended.
@@ -122,12 +122,5 @@ public enum CrossPromotionCatalog {
             return []
         }
         return apps(forHostBundleIdentifier: bundleIdentifier)
-    }
-
-    private static func localized(
-        _ key: String,
-        from bundle: Bundle
-    ) -> String {
-        bundle.localizedString(forKey: key, value: nil, table: nil)
     }
 }
