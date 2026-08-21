@@ -96,12 +96,18 @@ struct CrossPromotionCatalogTests {
     }
 
     @Test("Published catalog names resolve through the package catalog")
-    func publishedCatalogNamesUseLocalizedKeys() {
+    func publishedCatalogNamesUseLocalizedKeys() throws {
+        let path = try #require(
+            Bundle.module.path(forResource: "zh-Hans", ofType: "lproj")
+        )
+        let bundle = try #require(Bundle(path: path))
         let consumerApps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.linliao.ScreenStudies"
+            forHostBundleIdentifier: "com.linliao.ScreenStudies",
+            localizationBundle: bundle
         )
         let developerApps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.liaolin.apper"
+            forHostBundleIdentifier: "com.liaolin.apper",
+            localizationBundle: bundle
         )
         let names = Dictionary(
             uniqueKeysWithValues: (consumerApps + developerApps).map {
@@ -109,11 +115,11 @@ struct CrossPromotionCatalogTests {
             }
         )
 
-        #expect(names["6670716062"] == String(localized: "MONO Expense Tracker", bundle: .module))
-        #expect(names["6749771947"] == String(localized: "Pickup Cat Pickup Codes", bundle: .module))
-        #expect(names["6741805793"] == String(localized: "Filmo Media Library", bundle: .module))
-        #expect(names["6762844702"] == String(localized: "LastTime Days Since", bundle: .module))
-        #expect(names["6791957298"] == String(localized: "Supamate for Supabase", bundle: .module))
+        #expect(names["6670716062"] == "MONO 记账")
+        #expect(names["6749771947"] == "取件喵")
+        #expect(names["6741805793"] == "Filmo 书影音")
+        #expect(names["6762844702"] == "LastTime 距今天数")
+        #expect(names["6791957298"] == "Supamate · Supabase")
     }
 }
 
