@@ -21,7 +21,7 @@ public enum CrossPromotionCatalog {
                 bundleIdentifier: "weisenjoytech.mono-finance",
                 appStoreID: "6670716062",
                 audience: .consumer,
-                name: "MONO",
+                name: localized("MONO Expense Tracker"),
                 subtitle: localized("Personal finance, beautifully simple")
             ),
             Entry(
@@ -35,14 +35,14 @@ public enum CrossPromotionCatalog {
                 bundleIdentifier: "weisenjoytech.Filmo",
                 appStoreID: "6741805793",
                 audience: .consumer,
-                name: "Filmo",
+                name: localized("Filmo Media Library"),
                 subtitle: localized("Books, films, and music collection")
             ),
             Entry(
                 bundleIdentifier: "com.linliao.LastTime",
                 appStoreID: "6762844702",
                 audience: .consumer,
-                name: "LastTime",
+                name: localized("LastTime Days Since"),
                 subtitle: localized("Track the last time with smart reminders")
             ),
             // HeyCoffee is paused and intentionally excluded from cross-promotion.
@@ -50,7 +50,7 @@ public enum CrossPromotionCatalog {
                 bundleIdentifier: "com.linliao.SupaMate",
                 appStoreID: "6791957298",
                 audience: .developer,
-                name: "Supamate",
+                name: localized("Supamate for Supabase"),
                 subtitle: localized("Native workspace for Supabase")
             ),
             // Apper is registered as a developer-tool host but intentionally remains unpublished.
@@ -58,8 +58,17 @@ public enum CrossPromotionCatalog {
                 bundleIdentifier: "com.liaolin.apper",
                 appStoreID: nil,
                 audience: .developer,
-                name: "Apper",
+                name: localized("Apper Ideas"),
                 subtitle: localized("App Store update tracker")
+            ),
+            // ScreenStudies is a consumer-audience host so the study app can
+            // load the studio catalog; it stays unpublished and is never recommended.
+            Entry(
+                bundleIdentifier: "com.linliao.ScreenStudies",
+                appStoreID: nil,
+                audience: .consumer,
+                name: "ScreenStudies",
+                subtitle: "UI study reference"
             ),
         ]
     }
