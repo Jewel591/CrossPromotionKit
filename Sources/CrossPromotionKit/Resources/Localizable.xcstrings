@@ -25,6 +25,18 @@
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "App Store 更新追蹤工具" } }
       }
     },
+    "Apper Ideas" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Apper App-Ideen" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Apper Ideas de apps" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Apper Idées d’apps" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Apper アイデア" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Apper 아이디어" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Apper Ideias de apps" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Apper 灵感" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Apper 靈感" } }
+      }
+    },
     "Books, films, and music collection" : {
       "localizations" : {
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Sammlung für Bücher, Filme und Musik" } },
@@ -37,6 +49,18 @@
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "精美的個人書影音收藏" } }
       }
     },
+    "Filmo Media Library" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Filmo Medienbibliothek" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Filmo Biblioteca multimedia" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Filmo Bibliothèque média" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Filmo 映画・本・音楽" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Filmo 영화·책·음악" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Filmo Biblioteca de mídia" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Filmo 书影音" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Filmo 書影音" } }
+      }
+    },
     "Get" : {
       "localizations" : {
         "de" : { "stringUnit" : { "state" : "translated", "value" : "Laden" } },
@@ -47,6 +71,30 @@
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Obter" } },
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "获取" } },
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "取得" } }
+      }
+    },
+    "LastTime Days Since" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "LastTime Tageszähler" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "LastTime Contador de días" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "LastTime Compteur de jours" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 経過日数" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 경과일" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "LastTime Contador de dias" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 距今天数" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "LastTime 距今天數" } }
+      }
+    },
+    "MONO Expense Tracker" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "MONO Ausgaben-Tracker" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "MONO Control de gastos" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "MONO Suivi des dépenses" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "MONO 家計簿" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "MONO 가계부" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "MONO Controle de gastos" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "MONO 记账" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "MONO 記帳" } }
       }
     },
     "Native workspace for Supabase" : {
@@ -97,16 +145,28 @@
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "簡潔優雅的個人記帳" } }
       }
     },
-    "Pickup Cat" : {
+    "Pickup Cat Pickup Codes" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
-        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
-        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat Abholcodes" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat Códigos de recogida" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat Codes de retrait" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat 受取コード" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "픽업캣 수령 코드" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Pickup Cat Códigos de retirada" } },
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "取件喵" } },
         "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "取件喵" } }
+      }
+    },
+    "Supamate for Supabase" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Supamate für Supabase" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Supamate para Supabase" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Supamate pour Supabase" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "Supamate（Supabase向け）" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "Supamate (Supabase용)" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Supamate para Supabase" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Supamate · Supabase" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "Supamate · Supabase" } }
       }
     },
     "Track the last time with smart reminders" : {

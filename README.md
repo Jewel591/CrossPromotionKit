@@ -6,8 +6,8 @@ tools, selects the correct audience from the host Bundle ID, and always removes 
 
 ## Fixed audiences
 
-- `consumer`: MONO, Pickup Cat, Filmo, and HeyCoffee.
-- `developer`: Supamate and future published developer tools.
+- `consumer`: MONO, Pickup Cat, Filmo, LastTime, and unpublished hosts such as ScreenStudies.
+- `developer`: Supamate and unpublished developer tools such as Apper.
 
 An unknown host receives an empty catalog. This intentionally prevents a consumer app from
 showing developer tools after a registration mistake.

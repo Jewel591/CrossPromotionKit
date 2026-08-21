@@ -63,6 +63,22 @@ struct CrossPromotionCatalogTests {
         )
     }
 
+    @Test("ScreenStudies is an unpublished consumer host")
+    func screenStudiesRegistration() {
+        let apps = CrossPromotionCatalog.apps(
+            forHostBundleIdentifier: "com.linliao.ScreenStudies"
+        )
+
+        #expect(apps.map(\.appStoreID) == [
+            "6670716062",
+            "6749771947",
+            "6741805793",
+            "6762844702",
+        ])
+        #expect(apps.allSatisfy { $0.audience == .consumer })
+        #expect(!apps.contains { $0.bundleIdentifier == "com.linliao.ScreenStudies" })
+    }
+
     @Test("Published identifiers are complete and unique")
     func publishedIdentifiersAreValid() {
         let consumerApps = CrossPromotionCatalog.apps(
@@ -77,6 +93,33 @@ struct CrossPromotionCatalogTests {
         #expect(ids.count == Set(ids).count)
         #expect(ids.allSatisfy { !$0.isEmpty && $0.allSatisfy(\.isNumber) })
         #expect(apps.allSatisfy { !$0.name.isEmpty && !$0.subtitle.isEmpty })
+    }
+
+    @Test("Published catalog names resolve through the package catalog")
+    func publishedCatalogNamesUseLocalizedKeys() throws {
+        let path = try #require(
+            Bundle.module.path(forResource: "zh-Hans", ofType: "lproj")
+        )
+        let bundle = try #require(Bundle(path: path))
+        let consumerApps = CrossPromotionCatalog.apps(
+            forHostBundleIdentifier: "com.linliao.ScreenStudies",
+            localizationBundle: bundle
+        )
+        let developerApps = CrossPromotionCatalog.apps(
+            forHostBundleIdentifier: "com.liaolin.apper",
+            localizationBundle: bundle
+        )
+        let names = Dictionary(
+            uniqueKeysWithValues: (consumerApps + developerApps).map {
+                ($0.appStoreID, $0.name)
+            }
+        )
+
+        #expect(names["6670716062"] == "MONO 记账")
+        #expect(names["6749771947"] == "取件喵")
+        #expect(names["6741805793"] == "Filmo 书影音")
+        #expect(names["6762844702"] == "LastTime 距今天数")
+        #expect(names["6791957298"] == "Supamate · Supabase")
     }
 }
 
@@ -98,10 +141,31 @@ struct CrossPromotionLocalizationTests {
         )
         #expect(
             bundle.localizedString(
-                forKey: "Track the last time with smart reminders",
+                forKey: "MONO Expense Tracker",
                 value: nil,
                 table: nil
-            ) == "记录上一次，到期智能提醒"
+            ) == "MONO 记账"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "Filmo Media Library",
+                value: nil,
+                table: nil
+            ) == "Filmo 书影音"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "LastTime Days Since",
+                value: nil,
+                table: nil
+            ) == "LastTime 距今天数"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "Pickup Cat Pickup Codes",
+                value: nil,
+                table: nil
+            ) == "取件喵"
         )
     }
 
@@ -118,6 +182,34 @@ struct CrossPromotionLocalizationTests {
                 value: nil,
                 table: nil
             ) == "入手"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "MONO Expense Tracker",
+                value: nil,
+                table: nil
+            ) == "MONO 家計簿"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "Filmo Media Library",
+                value: nil,
+                table: nil
+            ) == "Filmo 映画・本・音楽"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "LastTime Days Since",
+                value: nil,
+                table: nil
+            ) == "LastTime 経過日数"
+        )
+        #expect(
+            bundle.localizedString(
+                forKey: "Pickup Cat Pickup Codes",
+                value: nil,
+                table: nil
+            ) == "Pickup Cat 受取コード"
         )
     }
 }
