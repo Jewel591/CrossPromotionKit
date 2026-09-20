@@ -1,126 +1,71 @@
 import Foundation
-import OSLog
 
+/// Metadata for every published studio app. Which products a host shows is the
+/// host's decision; this type only resolves the chosen products to catalog entries.
 public enum CrossPromotionCatalog {
-    private struct Entry: Sendable {
-        let bundleIdentifier: String
-        let appStoreID: String?
-        let audience: CrossPromotionAudience
-        let name: String
-        let subtitle: String
-    }
-
-    private static let logger = Logger(
-        subsystem: "com.weisenjoy.CrossPromotionKit",
-        category: "Catalog"
-    )
-
-    private static func entries(localizedBy bundle: Bundle) -> [Entry] {
-        [
-            Entry(
-                bundleIdentifier: "weisenjoytech.mono-finance",
-                appStoreID: "6670716062",
-                audience: .consumer,
-                name: String(localized: "MONO Expense Tracker", bundle: bundle),
-                subtitle: String(localized: "Personal finance, beautifully simple", bundle: bundle)
-            ),
-            Entry(
-                bundleIdentifier: "com.weisenjoytech.CodeCat",
-                appStoreID: "6749771947",
-                audience: .consumer,
-                name: String(localized: "Pickup Cat Pickup Codes", bundle: bundle),
-                subtitle: String(localized: "AI package pickup code organizer", bundle: bundle)
-            ),
-            Entry(
-                bundleIdentifier: "weisenjoytech.Filmo",
-                appStoreID: "6741805793",
-                audience: .consumer,
-                name: String(localized: "Filmo Media Library", bundle: bundle),
-                subtitle: String(localized: "Books, films, and music collection", bundle: bundle)
-            ),
-            Entry(
-                bundleIdentifier: "com.linliao.LastTime",
-                appStoreID: "6762844702",
-                audience: .consumer,
-                name: String(localized: "LastTime Days Since", bundle: bundle),
-                subtitle: String(localized: "Track the last time with smart reminders", bundle: bundle)
-            ),
-            // HeyCoffee is paused and intentionally excluded from cross-promotion.
-            Entry(
-                bundleIdentifier: "com.linliao.SupaMate",
-                appStoreID: "6791957298",
-                audience: .developer,
-                name: String(localized: "Supamate for Supabase", bundle: bundle),
-                subtitle: String(localized: "Native workspace for Supabase", bundle: bundle)
-            ),
-            // Apper is registered as a developer-tool host but intentionally remains unpublished.
-            Entry(
-                bundleIdentifier: "com.liaolin.apper",
-                appStoreID: nil,
-                audience: .developer,
-                name: String(localized: "Apper Ideas", bundle: bundle),
-                subtitle: String(localized: "App Store update tracker", bundle: bundle)
-            ),
-            // ScreenStudies is a consumer-audience host so the study app can
-            // load the studio catalog; it stays unpublished and is never recommended.
-            Entry(
-                bundleIdentifier: "com.linliao.ScreenStudies",
-                appStoreID: nil,
-                audience: .consumer,
-                name: "ScreenStudies",
-                subtitle: "UI study reference"
-            ),
-        ]
-    }
-
-    public static func audience(
-        forHostBundleIdentifier bundleIdentifier: String
-    ) -> CrossPromotionAudience? {
-        entries(localizedBy: .module)
-            .first { $0.bundleIdentifier == bundleIdentifier }?
-            .audience
-    }
-
-    public static func apps(
-        forHostBundleIdentifier bundleIdentifier: String
-    ) -> [CrossPromotionApp] {
-        apps(forHostBundleIdentifier: bundleIdentifier, localizationBundle: .module)
+    /// Resolves the host's selection in the given order. A product listed twice is shown once.
+    public static func apps(for products: [CrossPromotionProduct]) -> [CrossPromotionApp] {
+        apps(for: products, localizationBundle: .module)
     }
 
     /// Test seam: resolve catalog copy from a specific `.lproj` table instead of the process locale.
     static func apps(
-        forHostBundleIdentifier bundleIdentifier: String,
-        localizationBundle: Bundle
+        for products: [CrossPromotionProduct],
+        localizationBundle bundle: Bundle
     ) -> [CrossPromotionApp] {
-        let entries = entries(localizedBy: localizationBundle)
-        guard let host = entries.first(where: {
-            $0.bundleIdentifier == bundleIdentifier
-        }) else {
-            logger.error("Unknown host bundle identifier: \(bundleIdentifier, privacy: .public)")
-            return []
-        }
-
-        return entries.compactMap { entry in
-            guard entry.audience == host.audience,
-                  entry.bundleIdentifier != host.bundleIdentifier,
-                  let appStoreID = entry.appStoreID else {
-                return nil
-            }
-            return CrossPromotionApp(
-                bundleIdentifier: entry.bundleIdentifier,
-                appStoreID: appStoreID,
-                audience: entry.audience,
-                name: entry.name,
-                subtitle: entry.subtitle
-            )
-        }
+        var seen = Set<CrossPromotionProduct>()
+        return products
+            .filter { seen.insert($0).inserted }
+            .map { app(for: $0, localizedBy: bundle) }
     }
 
-    public static var appsForCurrentHost: [CrossPromotionApp] {
-        guard let bundleIdentifier = Bundle.main.bundleIdentifier else {
-            logger.error("Host bundle identifier is unavailable")
-            return []
+    // HeyCoffee is paused and Apper is unpublished; a product joins the catalog
+    // only after its App Store ID is live.
+    private static func app(
+        for product: CrossPromotionProduct,
+        localizedBy bundle: Bundle
+    ) -> CrossPromotionApp {
+        switch product {
+        case .mono:
+            CrossPromotionApp(
+                product: product,
+                bundleIdentifier: "weisenjoytech.mono-finance",
+                appStoreID: "6670716062",
+                name: String(localized: "MONO Expense Tracker", bundle: bundle),
+                subtitle: String(localized: "Personal finance, beautifully simple", bundle: bundle)
+            )
+        case .pickupCat:
+            CrossPromotionApp(
+                product: product,
+                bundleIdentifier: "com.weisenjoytech.CodeCat",
+                appStoreID: "6749771947",
+                name: String(localized: "Pickup Cat Pickup Codes", bundle: bundle),
+                subtitle: String(localized: "AI package pickup code organizer", bundle: bundle)
+            )
+        case .filmo:
+            CrossPromotionApp(
+                product: product,
+                bundleIdentifier: "weisenjoytech.Filmo",
+                appStoreID: "6741805793",
+                name: String(localized: "Filmo Media Library", bundle: bundle),
+                subtitle: String(localized: "Books, films, and music collection", bundle: bundle)
+            )
+        case .lastTime:
+            CrossPromotionApp(
+                product: product,
+                bundleIdentifier: "com.linliao.LastTime",
+                appStoreID: "6762844702",
+                name: String(localized: "LastTime Days Since", bundle: bundle),
+                subtitle: String(localized: "Track the last time with smart reminders", bundle: bundle)
+            )
+        case .supamate:
+            CrossPromotionApp(
+                product: product,
+                bundleIdentifier: "com.linliao.SupaMate",
+                appStoreID: "6791957298",
+                name: String(localized: "Supamate for Supabase", bundle: bundle),
+                subtitle: String(localized: "Native workspace for Supabase", bundle: bundle)
+            )
         }
-        return apps(forHostBundleIdentifier: bundleIdentifier)
     }
 }
