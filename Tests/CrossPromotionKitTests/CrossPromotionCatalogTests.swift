@@ -5,121 +5,56 @@ import Foundation
 
 @Suite("Cross-promotion catalog")
 struct CrossPromotionCatalogTests {
-    @Test("Consumer hosts see only published consumer apps and not themselves")
-    func consumerAudienceAndHostExclusion() {
-        let apps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "weisenjoytech.mono-finance"
-        )
+    @Test("The host's selection resolves in the order given")
+    func hostSelectionKeepsOrder() {
+        let apps = CrossPromotionCatalog.apps(for: [.filmo, .pickupCat])
 
-        #expect(apps.map(\.appStoreID) == [
-            "6749771947",
-            "6741805793",
-            "6762844702",
-        ])
-        #expect(apps.allSatisfy { $0.audience == .consumer })
-        #expect(!apps.contains { $0.bundleIdentifier == "weisenjoytech.mono-finance" })
+        #expect(apps.map(\.product) == [.filmo, .pickupCat])
+        #expect(apps.map(\.appStoreID) == ["6741805793", "6749771947"])
     }
 
-    @Test("LastTime is a registered consumer host and excludes itself")
-    func lastTimeRegistrationAndHostExclusion() {
-        let apps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.linliao.LastTime"
-        )
+    @Test("A product listed twice is shown once")
+    func duplicateSelectionIsShownOnce() {
+        let apps = CrossPromotionCatalog.apps(for: [.mono, .filmo, .mono])
 
-        #expect(apps.map(\.appStoreID) == [
-            "6670716062",
-            "6749771947",
-            "6741805793",
-        ])
-        #expect(apps.allSatisfy { $0.audience == .consumer })
-        #expect(!apps.contains { $0.bundleIdentifier == "com.linliao.LastTime" })
+        #expect(apps.map(\.product) == [.mono, .filmo])
     }
 
-    @Test("Developer hosts never receive consumer apps")
-    func developerAudienceIsolation() {
-        let apps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.liaolin.apper"
-        )
-
-        #expect(apps.map(\.appStoreID) == ["6791957298"])
-        #expect(apps.allSatisfy { $0.audience == .developer })
+    @Test("An empty selection yields no recommendations")
+    func emptySelection() {
+        #expect(CrossPromotionCatalog.apps(for: []).isEmpty)
     }
 
-    @Test("Unpublished apps are not recommendations")
-    func unpublishedEntriesAreHidden() {
-        let apps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.linliao.SupaMate"
-        )
-
-        #expect(apps.isEmpty)
-    }
-
-    @Test("Unknown hosts fail closed")
-    func unknownHostFailsClosed() {
-        #expect(
-            CrossPromotionCatalog.apps(
-                forHostBundleIdentifier: "com.example.unknown"
-            ).isEmpty
-        )
-    }
-
-    @Test("ScreenStudies is an unpublished consumer host")
-    func screenStudiesRegistration() {
-        let apps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.linliao.ScreenStudies"
-        )
-
-        #expect(apps.map(\.appStoreID) == [
-            "6670716062",
-            "6749771947",
-            "6741805793",
-            "6762844702",
-        ])
-        #expect(apps.allSatisfy { $0.audience == .consumer })
-        #expect(!apps.contains { $0.bundleIdentifier == "com.linliao.ScreenStudies" })
-    }
-
-    @Test("Published identifiers are complete and unique")
-    func publishedIdentifiersAreValid() {
-        let consumerApps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "weisenjoytech.mono-finance"
-        )
-        let developerApps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.liaolin.apper"
-        )
-        let apps = consumerApps + developerApps
+    @Test("Catalog identifiers are complete and unique")
+    func catalogIdentifiersAreValid() {
+        let apps = CrossPromotionCatalog.apps(for: CrossPromotionProduct.allCases)
         let ids = apps.map(\.appStoreID)
+        let bundleIDs = apps.map(\.bundleIdentifier)
 
+        #expect(apps.count == CrossPromotionProduct.allCases.count)
         #expect(ids.count == Set(ids).count)
+        #expect(bundleIDs.count == Set(bundleIDs).count)
         #expect(ids.allSatisfy { !$0.isEmpty && $0.allSatisfy(\.isNumber) })
         #expect(apps.allSatisfy { !$0.name.isEmpty && !$0.subtitle.isEmpty })
     }
 
-    @Test("Published catalog names resolve through the package catalog")
-    func publishedCatalogNamesUseLocalizedKeys() throws {
+    @Test("Catalog names resolve through the package catalog")
+    func catalogNamesUseLocalizedKeys() throws {
         let path = try #require(
             Bundle.module.path(forResource: "zh-Hans", ofType: "lproj")
         )
         let bundle = try #require(Bundle(path: path))
-        let consumerApps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.linliao.ScreenStudies",
+        let apps = CrossPromotionCatalog.apps(
+            for: CrossPromotionProduct.allCases,
             localizationBundle: bundle
         )
-        let developerApps = CrossPromotionCatalog.apps(
-            forHostBundleIdentifier: "com.liaolin.apper",
-            localizationBundle: bundle
-        )
-        let names = Dictionary(
-            uniqueKeysWithValues: (consumerApps + developerApps).map {
-                ($0.appStoreID, $0.name)
-            }
-        )
+        let names = Dictionary(uniqueKeysWithValues: apps.map { ($0.product, $0.name) })
 
-        #expect(names["6670716062"] == "MONO 记账")
-        #expect(names["6749771947"] == "取件喵")
-        #expect(names["6741805793"] == "Filmo 书影音")
-        #expect(names["6762844702"] == "LastTime 距今天数")
-        #expect(names["6791957298"] == "Supamate · Supabase")
+        #expect(names[.mono] == "MONO 记账")
+        #expect(names[.pickupCat] == "取件喵")
+        #expect(names[.filmo] == "Filmo 书影音")
+        #expect(names[.lastTime] == "LastTime 距今天数")
+        #expect(names[.supamate] == "Supamate · Supabase")
     }
 }
 

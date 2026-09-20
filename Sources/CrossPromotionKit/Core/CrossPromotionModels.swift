@@ -1,14 +1,19 @@
 import Foundation
 
-public enum CrossPromotionAudience: String, CaseIterable, Sendable {
-    case consumer
-    case developer
+/// A published studio app that a host may recommend. Each host app chooses which
+/// products to show and in what order; the package owns their metadata.
+public enum CrossPromotionProduct: String, CaseIterable, Hashable, Sendable {
+    case mono
+    case pickupCat
+    case filmo
+    case lastTime
+    case supamate
 }
 
 public struct CrossPromotionApp: Identifiable, Hashable, Sendable {
+    public let product: CrossPromotionProduct
     public let bundleIdentifier: String
     public let appStoreID: String
-    public let audience: CrossPromotionAudience
     public let name: String
     public let subtitle: String
 
@@ -19,15 +24,15 @@ public struct CrossPromotionApp: Identifiable, Hashable, Sendable {
     }
 
     init(
+        product: CrossPromotionProduct,
         bundleIdentifier: String,
         appStoreID: String,
-        audience: CrossPromotionAudience,
         name: String,
         subtitle: String
     ) {
+        self.product = product
         self.bundleIdentifier = bundleIdentifier
         self.appStoreID = appStoreID
-        self.audience = audience
         self.name = name
         self.subtitle = subtitle
     }

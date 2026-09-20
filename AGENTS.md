@@ -1,17 +1,19 @@
 # CrossPromotionKit
 
-Public Swift Package for the studio's fixed cross-promotion catalog on Apple platforms.
+Public Swift Package for the studio's cross-promotion catalog and surfaces on Apple platforms.
 
 ## Product boundary
 
-- The package owns the fixed consumer/developer audiences, host Bundle ID mapping, published
-  app catalog, host exclusion, App Store links, artwork lookup/cache, diagnostics, localization,
-  and optional SwiftUI surfaces.
+- The package owns the published product catalog (`CrossPromotionProduct` and its Bundle ID,
+  App Store ID, localized name and subtitle), App Store links, artwork lookup/cache,
+  diagnostics, localization, and optional SwiftUI surfaces.
+- Each host app decides which products it shows and in what order, and passes that selection
+  to `CrossPromotionSection` / `CrossPromotionRows`. The package has no audiences, no host
+  Bundle ID mapping, and no automatic selection or host exclusion.
 - Host apps own placement and may replace row rendering through `CrossPromotionRowStyle`.
-- An unknown host fails closed with an empty catalog. Never fall back to mixing audiences.
-- App identity, audience membership, ordering, and publication state are not external parameters.
-- Add an app only after its App Store ID is live; unpublished hosts may be registered solely so
-  their audience is known while their own section remains empty.
+- Hosts reference products only through `CrossPromotionProduct`; App Store IDs, names, and
+  links are not external parameters.
+- Add a product only after its App Store ID is live.
 
 ## Engineering
 

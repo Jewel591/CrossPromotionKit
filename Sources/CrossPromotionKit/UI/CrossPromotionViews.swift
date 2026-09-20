@@ -11,9 +11,10 @@ public struct CrossPromotionSection<Style: CrossPromotionRowStyle>: View {
     private let style: Style
     private let apps: [CrossPromotionApp]
 
-    public init(style: Style) {
+    /// - Parameter products: The apps this host recommends, in display order.
+    public init(_ products: [CrossPromotionProduct], style: Style) {
         self.style = style
-        apps = CrossPromotionCatalog.appsForCurrentHost
+        apps = CrossPromotionCatalog.apps(for: products)
     }
 
     public var body: some View {
@@ -28,8 +29,8 @@ public struct CrossPromotionSection<Style: CrossPromotionRowStyle>: View {
 }
 
 public extension CrossPromotionSection where Style == SystemCrossPromotionRowStyle {
-    init() {
-        self.init(style: SystemCrossPromotionRowStyle())
+    init(_ products: [CrossPromotionProduct]) {
+        self.init(products, style: SystemCrossPromotionRowStyle())
     }
 }
 
@@ -37,8 +38,9 @@ public struct CrossPromotionRows<Style: CrossPromotionRowStyle>: View {
     private let apps: [CrossPromotionApp]
     private let style: Style
 
-    public init(style: Style) {
-        apps = CrossPromotionCatalog.appsForCurrentHost
+    /// - Parameter products: The apps this host recommends, in display order.
+    public init(_ products: [CrossPromotionProduct], style: Style) {
+        apps = CrossPromotionCatalog.apps(for: products)
         self.style = style
     }
 
@@ -55,8 +57,8 @@ public struct CrossPromotionRows<Style: CrossPromotionRowStyle>: View {
 }
 
 public extension CrossPromotionRows where Style == SystemCrossPromotionRowStyle {
-    init() {
-        self.init(style: SystemCrossPromotionRowStyle())
+    init(_ products: [CrossPromotionProduct]) {
+        self.init(products, style: SystemCrossPromotionRowStyle())
     }
 }
 

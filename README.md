@@ -1,16 +1,16 @@
 # CrossPromotionKit
 
 `CrossPromotionKit` is a public Swift Package for the studio's “More from Us” surfaces on
-Apple platforms. It keeps one fixed product catalog, separates consumer apps from developer
-tools, selects the correct audience from the host Bundle ID, and always removes the host app.
+Apple platforms. The package owns the metadata of every published app; each host app chooses
+which products it recommends and in what order.
 
-## Fixed audiences
+## Products
 
-- `consumer`: MONO, Pickup Cat, Filmo, LastTime, and unpublished hosts such as ScreenStudies.
-- `developer`: Supamate and unpublished developer tools such as Apper.
+`CrossPromotionProduct` lists the published apps: `.mono`, `.pickupCat`, `.filmo`, `.lastTime`,
+and `.supamate`. A product joins the enum only after its App Store ID is live.
 
-An unknown host receives an empty catalog. This intentionally prevents a consumer app from
-showing developer tools after a registration mistake.
+The host passes its own selection. Products render in the order given, and a product listed
+twice renders once.
 
 ## Standard UI
 
@@ -18,7 +18,7 @@ showing developer tools after a registration mistake.
 import CrossPromotionKit
 
 Form {
-    CrossPromotionSection()
+    CrossPromotionSection([.pickupCat, .filmo])
 }
 ```
 
@@ -38,11 +38,12 @@ struct BrandCrossPromotionStyle: CrossPromotionRowStyle {
     }
 }
 
-CrossPromotionSection(style: BrandCrossPromotionStyle())
+CrossPromotionSection([.pickupCat, .filmo], style: BrandCrossPromotionStyle())
 ```
 
-For a custom section container, place `CrossPromotionRows(style:)` inside the host's own
-`Section` or card. Apps do not pass catalog entries or audience values.
+For a custom section container, place `CrossPromotionRows(_:style:)` inside the host's own
+`Section` or card. Hosts reference products by `CrossPromotionProduct`; they never pass App
+Store IDs, names, or links.
 
 ## Requirements
 
