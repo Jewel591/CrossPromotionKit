@@ -9,7 +9,7 @@ description: 在任何 Apple App 里实现、迁移或排查「我们的其他�
 
 全线 Apple App 的自有产品推荐唯一正身是
 **[Jewel591/CrossPromotionKit](https://github.com/Jewel591/CrossPromotionKit)**。
-产品边界读仓库 `CLAUDE.md`，用法读 `README.md`；playbook 裁决在 `tech-stack TOOL-17`。
+产品边界读仓库 `AGENTS.md`，用法读 `README.md`；playbook 裁决在 `tech-stack TOOL-17`。
 
 ## 何时触发
 
